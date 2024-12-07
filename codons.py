@@ -5,8 +5,8 @@ def create_codon_dict(file_path):
 
     codons2aa={}
     for row in rows:
-        cell = row.strip().split('/t')
-        codons2aa[cell[0]] = cell[2]
+        cells = row.strip().split('\t')
+        codons2aa[cells[0]] = cells[2]
     return codons2aa
 
 
