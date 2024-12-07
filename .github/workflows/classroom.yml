@@ -13,8 +13,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: "create_codon_dict_test.py"
-      id: create_codon_dict_test-py
+    - name: ".tests/create_codon_dict_test.py"
+      id: tests-create_codon_dict_test-py
       uses: classroom-resources/autograding-python-grader@v1
       with:
         timeout: 10
@@ -23,6 +23,6 @@ jobs:
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        CREATE_CODON_DICT_TEST-PY_RESULTS: "${{steps.create_codon_dict_test-py.outputs.result}}"
+        TESTS-CREATE_CODON_DICT_TEST-PY_RESULTS: "${{steps.tests-create_codon_dict_test-py.outputs.result}}"
       with:
-        runners: create_codon_dict_test-py
+        runners: tests-create_codon_dict_test-py
